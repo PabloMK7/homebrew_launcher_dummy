@@ -1,0 +1,38 @@
+; Uniforms
+.fvec projection[4]
+
+; Constants
+.constf myconst(0.0, 1.0, -1.0, 0.1)
+.constf RGBA_TO_FLOAT4(0.00392156862, 0, 0, 0)
+.alias  ones  myconst.yyyy ; Vector full of ones
+.alias  zeros myconst.xxxx ; Vector full of zeros
+
+; Outputs
+.out outpos position
+.out outclr color
+.out outtc0 texcoord0
+
+; Inputs (defined as aliases for convenience)
+.alias inpos v0
+.alias intex v1
+
+.proc main
+	; Force the zw component of inpos to be 1.0
+	mov r0.xy, inpos
+	mov r0.z, zeros
+	mov r0.w, ones
+
+	; outpos = projectionMatrix * inpos
+	dp4 outpos.x, projection[0], r0
+	dp4 outpos.y, projection[1], r0
+	mov outpos.z, zeros
+	mov outpos.w, ones
+
+	;outtc0 = intexcoord
+	mov outtc0, intex
+
+	;outclr
+	mul outclr, RGBA_TO_FLOAT4.xxxx, intex
+
+	end
+.end
