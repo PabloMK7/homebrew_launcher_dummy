@@ -30,8 +30,8 @@ VERSION_MICRO := 0
 
 
 BUILD_FLAGS := -march=armv6k -mtune=mpcore -mfloat-abi=hard
-BUILD_FLAGS_CC := -g -Wall -Wno-strict-aliasing -O3 -mword-relocations \
-					-fomit-frame-pointer -ffast-math $(ARCH) $(INCLUDE) -DARM11 -D_3DS $(BUILD_FLAGS) \
+BUILD_FLAGS_CC := -g -Wall -Werror -Wno-strict-aliasing -O3 -mword-relocations \
+					-fomit-frame-pointer -ffast-math $(ARCH) $(INCLUDE) -D__3DS__ $(BUILD_FLAGS) \
 					-DAPP_VERSION_MAJOR=${VERSION_MAJOR} \
 					-DAPP_VERSION_MINOR=${VERSION_MINOR} \
 					-DAPP_VERSION_MICRO=${VERSION_MICRO}

@@ -83,7 +83,6 @@ typedef u32 screenPos_t;
 
 void        drawInit(void);
 void        drawExit(void);
-void        drawEndFrame(void);
 void        setScreen(gfxScreen_t screen);
 void        updateScreen(void);
 
@@ -92,10 +91,15 @@ Result      newSpriteFromPNG(sprite_t **out, const char *filename);
 void        deleteSprite(sprite_t *sprite);
 void        setSpritePos(sprite_t *sprite, float posX, float posY);
 void        drawSprite(sprite_t *sprite);
+void		drawRectangle(rectangle_t *rect);
 
 #define COLOR_BLUE          0xFFFF0000
 #define COLOR_RED           0xFF0000FF
 #define COLOR_GREEN         0xFF00FF00
+#define COLOR_YELLOW        0xFF00FFFF
+#define COLOR_CYAN          0xFFFFFF00
+#define COLOR_PURPLE        0xFF800080
+#define COLOR_FUCHSIA       0xFFFF00FF
 #define COLOR_BLANK         0xFFFFFFFF
 #define COLOR_BLACK         0xFF000000
 #define COLOR_GREY          0xFF989898

@@ -36,7 +36,6 @@ int main(void)
 		updateUI();
 	}
 	svcSleepThread(1000000000);
-	drawEndFrame();
 	drawExit();
 	exitUI();
     romfsExit();
